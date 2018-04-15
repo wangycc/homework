@@ -12,6 +12,7 @@ script:
   - docker login -u $DOCKER_HUB_LOGIN -p $DOCKER_HUB_PASSWORD
   - docker build -t 19931028/homework:v1 -f Dockerfile . 
   - docker images
+  - docker push 19931028/homework
   
 
 job:
