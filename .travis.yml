@@ -1,7 +1,22 @@
 sudo: required
 
+env: 
+
 services:
   - docker
 
+before_install:
+  - echo "java"
+
 script:
-  - docker build -t test:v1 -f Dockerfile.static . 
+  - docker login -u $DOCKER_HUB_LOGIN -p $DOCKER_HUB_PASSWORD
+  - docker build -t 19931028/homework:v1 -f Dockerfile . 
+  - docker images
+  - docker push 19931028/homework
+  
+
+job:
+  branches:
+  only:
+  - master
+  - stable
