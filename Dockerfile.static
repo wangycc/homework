@@ -1,8 +1,0 @@
-FROM nginx:1.9.15-alpine
-MAINTAINER Marc J. Greenberg <codemarc@gmail.com>
-
-RUN apk --update add unzip
-    
-COPY static/* /usr/share/nginx/html/ 
-
-COPY default.conf /etc/nginx/conf.d/default.conf

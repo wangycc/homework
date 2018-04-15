@@ -1,0 +1,12 @@
+#production
+[production]
+10.100.1.2
+
+[staging]
+10.100.1.3
+
+
+[test]
+10.100.1.4
+
+

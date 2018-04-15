@@ -1,24 +1,10 @@
 version: '2'
 services:
-  static:
-    hostname: static
-    build:
-      context: .
-      dockerfile: Dockerfile.static
-    environment:
-      - VIRTUAL_HOST=*/styles/*.*,*/images/*.*
-      - VIRTUAL_HOST_WEIGHT=0
-    ports:
-      - 80
   web:
-    hostname: web
-    build:
-      context: .
-      dockerfile: Dockerfile.web
+    build: .
     ports:
-      - 8080
-    environment:
-      - VIRTUAL_HOST=*/*.action,*/
-      - VIRTUAL_HOST_WEIGHT=1
+     - "5000:5000"
     volumes:
-      - ../data:/Users/dcameron/persistence
+     - .:/code
+  redis:
+    image: "redis:alpine"
